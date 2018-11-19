@@ -67,7 +67,7 @@ class FM:
         loss = e**2
         print('Epoch: {},user_id: {},item_id: {},y: {},r: {},e: {},loss:{}'.format(epoch,user_id,item_id,y,r,e,loss))
         return e
-    def _optimation(self,user_id,item_id,e):
+    def _optimization(self,user_id,item_id,e):
         gradient_p = (-1*self.Q.ix[item_id].values)*e+self.lam*self.P.ix[user_id].values
         gradient_q = (-1*self.P.ix[user_id].values)*e+self.lam*self.Q.ix[item_id].values
         # print('gradient_p: {},gradient_q: {}'.format(gradient_p,gradient_q))
@@ -79,10 +79,8 @@ class FM:
                 item_ids = list(items_dict.keys())
                 for item_id in item_ids:
                     e = self._loss(step,user_id,item_id,items_dict[item_id])
-                    p_i = np.mat(self.P.ix[user_id].values)
-                    q_j = np.mat(self.Q.ix[item_id].values).T
                     # print('p_i: {},q_j: {}'.format(self.P.ix[user_id].values, self.Q.ix[item_id].values))
-                    self._optimation(user_id,item_id,e)
+                    self._optimization(user_id,item_id,e)
             self.lr *= 0.9
         self.save()
 

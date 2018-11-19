@@ -81,7 +81,7 @@ class LFM:
                 random.shuffle(item_ids)
                 for item_id in item_ids:
                     e = self._loss(user_id,item_id,item_dict[item_id],step)
-                    self._optimation(user_id,item_id,e)
+                    self._optimization(user_id,item_id,e)
 
             # 学习率衰减
             self.lr*=0.9
