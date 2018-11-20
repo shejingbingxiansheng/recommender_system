@@ -108,11 +108,11 @@ class LFM:
         return order_item_pref[:top_n]
 
     def save(self):
-        f = open(os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".") + "/data/lfm.model",'wb')
+        f = open(os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".") + "/data/lfm.factorization",'wb')
         pickle.dump((self.p,self.q),f)
         f.close()
 
     def load(self):
-        f=open(os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".") + "/data/lfm.model",'rb')
+        f=open(os.path.abspath(os.path.dirname(os.getcwd()) + os.path.sep + ".") + "/data/lfm.factorization",'rb')
         self.p,self.q = pickle.load(f)
         f.close()

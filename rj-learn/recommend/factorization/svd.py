@@ -105,6 +105,6 @@ class SVD:
         f.close()
 
     # def load(self):
-    #     f = open(os.getcwd()+"/svd.model",'rb')
+    #     f = open(os.getcwd()+"/svd.factorization",'rb')
     #     self.P,self.Q,self.Bu,self.Bi = pickle.load(f)
     #     f.close()

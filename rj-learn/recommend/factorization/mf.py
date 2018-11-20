@@ -1,10 +1,8 @@
 import pandas as pd
 import numpy as np
-from math import exp
-import math
 import pickle
 import os
-class FM:
+class MF:
     def __init__(self,k,epoch,lr,lam,dataFrame):
         '''
         :param k: 隐因子数量，一般在50~200
@@ -99,11 +97,11 @@ class FM:
         return order_item_pref[:top_n]
 
     def save(self):
-        f = open(os.getcwd()+"/FM.model",'wb')
+        f = open(os.getcwd()+"/FM.factorization",'wb')
         pickle.dump((self.P,self.Q),f)
         f.close()
 
     def load(self):
-        f = open(os.getcwd()+"/FM.model",'rb')
+        f = open(os.getcwd()+"/FM.factorization",'rb')
         self.P,self.Q = pickle.load(f)
         f.close()
