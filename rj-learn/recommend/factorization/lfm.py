@@ -3,9 +3,9 @@ import pickle
 import pandas as pd
 import numpy as np
 from math import exp
-from model.sample import Corpus
+from recommend.factorization.sample import Corpus
 import os
-class LFM:
+class LMF:
     '''
     利用隐式反馈的推荐算法
     '''
