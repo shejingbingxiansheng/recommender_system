@@ -31,7 +31,7 @@
       <file leaf-file-name="mf.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/mf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="-1850">
               <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -43,7 +43,7 @@
       <file leaf-file-name="lfm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/lfm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="-1961">
               <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -52,12 +52,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svd_plus_plus.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/svd_plus_plus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="86" column="39" lean-forward="false" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svd.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/svd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="62" column="88" lean-forward="false" selection-start-line="62" selection-start-column="88" selection-end-line="62" selection-end-column="88" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,6 +132,8 @@
         <option value="$PROJECT_DIR$/../rj-learn/recommend/collaborative_filtering/__init__.py" />
         <option value="$PROJECT_DIR$/../rj-learn/recommend/factorization/lfm.py" />
         <option value="$PROJECT_DIR$/../rj-learn/recommend/factorization/test.py" />
+        <option value="$PROJECT_DIR$/../rj-learn/recommend/factorization/svd.py" />
+        <option value="$PROJECT_DIR$/../rj-learn/recommend/factorization/svd_plus_plus.py" />
       </list>
     </option>
   </component>
@@ -575,22 +601,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../rj-learn/model/sample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1295">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../rj-learn/model/svd_plus_plus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../rj-learn/test/test1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -852,16 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/mf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -890,9 +890,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/lfm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="-1961">
           <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -900,11 +908,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/test.py">
+    <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/mf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-1850">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/svd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="62" column="88" lean-forward="false" selection-start-line="62" selection-start-column="88" selection-end-line="62" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../rj-learn/recommend/factorization/svd_plus_plus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="86" column="39" lean-forward="false" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

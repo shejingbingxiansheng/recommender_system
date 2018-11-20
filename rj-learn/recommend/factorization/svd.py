@@ -59,8 +59,8 @@ class SVD:
         print('Step:{}, user_id:{}, item_id:{}, loss:{}'.format(step,user_id,item_id,loss))
         return e
     def _optimization(self,user_id,item_id,e):
-        gradient_p = (-1*self.Q.ix[item_id].values)*e+self.lam*self.P.ix[user_id]
-        gradient_q = (-1*self.P.ix[user_id].values)*e+self.lam*self.Q.ix[item_id]
+        gradient_p = (-1*self.Q.ix[item_id].values)*e+self.lam*self.P.ix[user_id].values
+        gradient_q = (-1*self.P.ix[user_id].values)*e+self.lam*self.Q.ix[item_id].values
         gradient_bu = -1*e+self.lam*self.Bu.ix[user_id].values
         gradient_bi = -1*e+self.lam*self.Bi.ix[item_id].values
 
