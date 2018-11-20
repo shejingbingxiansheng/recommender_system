@@ -1,2 +1,2 @@
-# recommender_system
+# machine learning
 algorithm
