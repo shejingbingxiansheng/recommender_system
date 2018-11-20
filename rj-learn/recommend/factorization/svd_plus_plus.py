@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import pickle
 
 class SVDPlus:
     def __init__(self,k,epoch,lr,lam):
@@ -12,11 +13,12 @@ class SVDPlus:
         ratings_length = self.frame.shape[0]#评分数量
         total_ratings = self.frame[['Rating']].sum()#总评分数
         self.μ = float(total_ratings / ratings_length)  # 所有评分的总平均值
-        self.user_ids = set(self.frame[['UserId']].values)
-        self.item_ids = set(self.frame[['MovieId']].values)
-        self._get_user_item_ratings()
+        self.user_ids = set(self.frame['UserId'].values)
+        self.item_ids = set(self.frame['MovieId'].values)
         self.user_count = len(self.user_ids)
         self.item_count = len(self.item_ids)
+        self._get_user_item_ratings()
+
         array_P = np.random.randn(self.user_count,self.k)
         array_Q = np.random.randn(self.item_count,self.k)
         self.P = pd.DataFrame(array_P,index=list(self.user_ids),columns=range(0,self.k))
@@ -35,7 +37,7 @@ class SVDPlus:
         '''
         #保存每个用户评分的电影数量
         array_Ru = np.zeros((self.user_count,1))
-        self.Ru = pd.DataFrame(array_Ru,index=list(self.user_count),columns=[0])
+        self.Ru = pd.DataFrame(array_Ru,index=list(self.user_ids),columns=[0])
 
         user_item_rat = {}
         for user_id in self.user_ids:
@@ -55,7 +57,7 @@ class SVDPlus:
         ru = self.Ru.ix[user_id].values
         #获取该用户的评分item列表
         item_ids = list(self.user_item_rat[user_id].keys())
-        yis = self.y[[item_ids]].values
+        yis = self.y.ix[item_ids,:].values
         yi = yis[0]
         for i in range(1,yi.shape[0]):
             yi+=yis[i]
@@ -74,7 +76,7 @@ class SVDPlus:
         gradient_p = (-1*self.Q.ix[item_id].values)*e+self.lam*self.P.ix[user_id].values
         ru = self.Ru.ix[user_id].values
         item_ids = list(self.user_item_rat[user_id].keys())
-        yis = self.y[[item_ids]].values
+        yis = self.y.ix[item_ids,:].values
         yi = yis[0]
         for i in range(1, yi.shape[0]):
             yi += yis[i]
@@ -86,5 +88,39 @@ class SVDPlus:
         self.P.loc[user_id] -= self.lr*gradient_p
         self.Q.loc[item_id] -= self.lr*gradient_q
         for id in item_ids:
-            gradient_yid = -1*e*(self.Q.ix[id]/(ru**0.5))+self.lam*self.y.ix[id].values
+            gradient_yid = -1*e*(self.Q.ix[id].values/(ru**0.5))+self.lam*self.y.ix[id].values
             self.y.loc[id] -= self.lr*gradient_yid
+
+    def fit(self,df):
+        self.frame = df
+        self.init_model()
+        for step in range(self.epoch):
+            for user_id,item_rat_dict in self.user_item_rat.items():
+                item_ids = list(item_rat_dict.keys())
+                for item_id in item_ids:
+                    e = self._error(step,user_id,item_id,item_rat_dict[item_id])
+                    self._optimization(user_id,item_id,e)
+            self.lr *= 0.9
+
+    def predict(self,user_id,top_n):
+        '''
+        为指定用户推荐topn
+        :param user_id:
+        :param top_n:
+        :return:
+        '''
+
+        # 拿到指定用户评分过的电影
+        user_item_ids = set(self.frame[self.frame['UserId']==user_id][['MovieId']].values)
+        #拿到用户没评分过的其他电影
+        other_item_ids = self.item_ids^user_item_ids
+        pref = [self._predict(user_id,item_id) for item_id in other_item_ids]
+        other_item_pref = zip(list(other_item_ids),pref)
+        # 按值排序，从大到小
+        order_item_pref = sorted(other_item_pref,key=lambda x:x[1],reverse=True)
+        return order_item_pref[:top_n]
+
+    def save(self,path):
+        f = open(path,'wb')
+        pickle.dump(self,f)
+        f.close()
